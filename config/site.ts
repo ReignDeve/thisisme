@@ -6,7 +6,7 @@ export const siteConfig = {
   navItems: [
     {
       label: "About",
-      href: "/",
+      href: "/about",
     },
     {
       label: "Experience",
