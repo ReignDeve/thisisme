@@ -53,7 +53,7 @@ export default function RootLayout({
             <main className="container mx-auto max-w-7xl px-6 flex-grow flex items-center justify-center">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
+            <footer className="w-full flex items-center justify-center py-3 mt-0 md:mt-5">
               <section className="flex gap-5">
                 <NextLink color="foreground" href="/impressum">
                   Impressum

@@ -5,7 +5,7 @@ import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 export default function Experience() {
   return (
     <section>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <section className="flex flex-col items-center justify-center gap-4 py-8 mt-0 md:py-10 md:mt-5">
         <div className="inline-block max-w-xl text-center">
           <span className={title()}>My&nbsp;</span>
           <span className={title({ color: "yellow" })}>Experience&nbsp;</span>
