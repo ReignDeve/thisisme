@@ -4,6 +4,13 @@ import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 
 export default function AboutPage() {
   return (
+    <section>
+      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="inline-block max-w-xl text-center">
+          <span className={title()}>About&nbsp;</span>
+          <span className={title({ color: "yellow" })}>Me&nbsp;</span>
+        </div>
+      </section>
     <section className="flex flex-col md:flex-row items-center justify-center gap-10 py-8 md:py-10">
   {/* Linke Seite: Bild und Card */}
   <div className="flex flex-col items-center md:items-start gap-6 mr-20">
@@ -23,16 +30,17 @@ export default function AboutPage() {
   </div>
 
   {/* Rechte Seite: Beschreibung */}
-  <div className="flex flex-col items-start max-w-lg text-left text-2xl">
+  <div className="flex flex-col items-start max-w-lg text-left text-2xl min-w-[600px]">
     <p>
-      I’m a 22-year-old from Germany, currently working as a student employee
-      at adesso SE while pursuing a Computer Science degree at the Technische Hochschule Nürnberg Georg Simon Ohm.
+    Hi, I’m a 22-year-old from Germany, currently studying Computer Science at the Technische Hochschule Nürnberg Georg Simon Ohm and working as a student employee at adesso SE.
+    This combination gives me the chance to gain practical experience while deepening my knowledge of technology through my studies.
     </p>
     <p className="mt-4">
-      My passion for technology goes hand in hand with my love for the
-      performing arts: in my free time, I make music and appear in musicals.
+    When I’m not focused on tech, I enjoy spending time on creative projects. Music and musicals have been a part of my life for as long as I can remember.
+    Performing on stage or working on music gives me a different kind of focus and balance that complements my interest in technology.
     </p>
   </div>
+</section>
 </section>
   );
 }

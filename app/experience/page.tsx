@@ -39,7 +39,7 @@ export default function Experience() {
         </Card>
         <Card className="bg-transparent border-1 border-white min-w-[400px] min-h-[300px]">
           <CardBody className="items-center">
-            <h2 className="mb-5 text-2xl">Other</h2>
+            <h2 className="mb-5 text-2xl">Other Expericences</h2>
             <section className="text-lg flex flex-col gap-2">
             <p>Azure</p>
             <p>Blender</p>

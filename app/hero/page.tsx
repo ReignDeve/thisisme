@@ -1,14 +1,24 @@
+"use client"
 import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
 import { button as buttonStyles } from "@nextui-org/theme";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 
+const Hero = () => {
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/Marius_CV.pdf"; // Pfad zur Datei (relativ oder absolut)
+    link.download = "Marius_CV.pdf"; // Name der heruntergeladenen Datei
+    link.click();
+  };
 
-export default function Hero() {
+  const handleCopyEmail = () => {
+    const email = "mariusbungert@gmx.de"; // Ersetze dies durch deine E-Mail-Adresse
+    navigator.clipboard.writeText(email).then(() => {
+      alert("Email address copied to clipboard!"); // Optional: Hinweis, dass die E-Mail kopiert wurde
+    });
+  };
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center">
@@ -24,29 +34,32 @@ export default function Hero() {
       </div>
 
       <div className="flex gap-3">
-        <Link
-          isExternal
+        {/* Download CV Button */}
+        <button
           className={buttonStyles({
             color: "primary",
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          onClick={handleDownload}
         >
           Download CV
-        </Link>
-        <Link
-          isExternal
+        </button>
+
+         {/* Contact Me Button */}
+         <button
           className={buttonStyles({
             color: "primary",
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          onClick={handleCopyEmail}
         >
           Contact Me
-        </Link>
+        </button>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
