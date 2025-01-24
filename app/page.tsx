@@ -1,13 +1,6 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import About from "@/app/about/page";
 import Hero from "./hero/page";
+import Experience from "./experience/page";
 
 export default function Home() {
   return (
@@ -20,6 +13,11 @@ export default function Home() {
     {/* About Section */}
     <section className="h-screen flex items-center justify-center">
       <About />
+    </section>
+
+    {/* Experience Section */}
+    <section className="h-screen flex items-center justify-center">
+      <Experience/>
     </section>
   </div>
   );
