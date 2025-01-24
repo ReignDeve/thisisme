@@ -8,6 +8,8 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import NextLink from "next/link";
+import Impressum from "./impressum/page";
 
 export const metadata: Metadata = {
   title: {
@@ -32,6 +34,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  function linkStyles(arg0: { color: string }): clsx.ClassValue {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <html suppressHydrationWarning lang="en">
       <head />
@@ -47,7 +53,16 @@ export default function RootLayout({
             <main className="container mx-auto max-w-7xl px-6 flex-grow flex items-center justify-center">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3"></footer>
+            <footer className="w-full flex items-center justify-center py-3">
+              <section className="flex gap-5">
+                <NextLink color="foreground" href="/impressum">
+                  Impressum
+                </NextLink>
+                <NextLink color="foreground" href="/privacypolicy">
+                  Private Policy
+                </NextLink>
+              </section>
+            </footer>
           </div>
         </Providers>
       </body>

@@ -11,6 +11,9 @@
 	"dependencies": {
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.0",
+		"@heroui/alert": "^2.2.10",
+		"@heroui/system": "^2.4.7",
+		"@heroui/theme": "^2.4.6",
 		"@mui/icons-material": "^6.4.1",
 		"@mui/material": "^6.4.1",
 		"@nextui-org/button": "2.2.8",
