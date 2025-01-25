@@ -6,13 +6,13 @@ interface PreloaderProps {
   onComplete: () => void;
 }
 
-const Preloader: React.FC<PreloaderProps> = ({ text, onComplete }) => {
+export default function Preloader({ text, onComplete }: PreloaderProps) {
   const [displayText, setDisplayText] = useState("");
 
   useEffect(() => {
     let currentIndex = 0;
     const interval = setInterval(() => {
-      if (currentIndex < 36) {
+      if (currentIndex < text.length) {
         setDisplayText((prev) => prev + text[currentIndex]);
         currentIndex++;
       } else {
@@ -25,10 +25,8 @@ const Preloader: React.FC<PreloaderProps> = ({ text, onComplete }) => {
   }, [text, onComplete]);
 
   return (
-    <div className="fixed inset-0 flex justify-center items-center bg-black text-white z-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black text-white z-50">
       <h1 className="text-3xl sm:text-5xl font-semibold">{displayText}</h1>
     </div>
   );
-};
-
-export default Preloader;
+}
