@@ -4,7 +4,7 @@ import About from "@/app/about/page";
 import Hero from "./hero/page";
 import Experience from "./experience/page";
 import CustomAlert from "@/app/alert/alert";
-import Preloader from "@/app/preload/page"
+import Preloader from "@/app/preload/preload"
 
 export default function Home() {
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);

@@ -12,7 +12,7 @@ export default function Preloader({ text, onComplete }: PreloaderProps) {
   useEffect(() => {
     let currentIndex = 0;
     const interval = setInterval(() => {
-      if (currentIndex < text.length) {
+      if (currentIndex < 36) {
         setDisplayText((prev) => prev + text[currentIndex]);
         currentIndex++;
       } else {
