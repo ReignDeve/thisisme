@@ -1,18 +1,30 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import About from "@/app/about/page";
 import Hero from "./hero/page";
 import Experience from "./experience/page";
 import CustomAlert from "@/app/alert/alert";
+import Preloader from "./preload/page";
 
 export default function Home() {
-  const [showAlert, setShowAlert] = useState(false);
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const [showAlert, setShowAlert] = useState(true);
 
   useEffect(() => {
-    setShowAlert(true);
-    const timer = setTimeout(() => setShowAlert(false), 5000);
-    return () => clearTimeout(timer);
+    const hasSeenAnimation = sessionStorage.getItem("hasSeenAnimation");
+    if (hasSeenAnimation) {
+      setIsAnimationComplete(true); // Überspringe die Animation, wenn sie bereits gezeigt wurde
+    }
   }, []);
+
+  const handleAnimationComplete = () => {
+    sessionStorage.setItem("hasSeenAnimation", "true");
+    setIsAnimationComplete(true);
+  };
+
+  if (!isAnimationComplete) {
+    return <Preloader text=" TTomorrow is a hope, never a promise " onComplete={handleAnimationComplete} />;
+  }
 
   return (
     <div className="flex flex-col">
