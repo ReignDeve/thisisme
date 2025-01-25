@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 
 interface PreloaderProps {
-  text: string; // Der Text, der Buchstabe für Buchstabe angezeigt wird
-  onComplete: () => void; // Callback, wenn die Animation abgeschlossen ist
+  text: string;
+  onComplete: () => void;
 }
 
 const Preloader: React.FC<PreloaderProps> = ({ text, onComplete }) => {
