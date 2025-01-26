@@ -15,6 +15,17 @@ module.exports = {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
       },
+      keyframes: {
+        letterGlow: {
+          "0%": { opacity: "0", textShadow: "0px 0px 1px rgba(255,255,255,0.1)" },
+          "66%": { opacity: "1", textShadow: "0px 0px 20px rgba(255,255,255,0.9)" },
+          "77%": { opacity: "1" },
+          "100%": { opacity: "0.7", textShadow: "0px 0px 20px rgba(255,255,255,0)" },
+        },
+      },
+      animation: {
+        "letter-glow": "letterGlow 0.7s ease both",
+      },
     },
   },
   darkMode: "class",

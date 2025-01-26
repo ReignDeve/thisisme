@@ -21,7 +21,7 @@ export const Navbar = () => {
           alt="mb logo"
           className="m-5"
           src="/mb.svg"
-          width={30}
+          width={40}
         />
       </NextLink>
     </NavbarBrand>

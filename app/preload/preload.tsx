@@ -19,7 +19,7 @@ export default function Preloader({ text, onComplete }: PreloaderProps) {
         clearInterval(interval);
         setTimeout(onComplete, 1000); // Optionaler Delay nach der Animation
       }
-    }, 150);
+    }, 100);
 
     return () => clearInterval(interval);
   }, [text, onComplete]);

@@ -1,39 +1,60 @@
-"use client"
-import { Link } from "@nextui-org/link";
-import { button as buttonStyles } from "@nextui-org/theme";
+"use client";
 
-import { siteConfig } from "@/config/site";
+import { useEffect } from "react";
+import { button as buttonStyles } from "@nextui-org/theme";
 import { title, subtitle } from "@/components/primitives";
 
 const Hero = () => {
+  const text = "Hi, I am Marius";
+  const subText =
+    "I am a Media Informatic Student and a Hobby Software Developer from Germany";
+
+  // Funktion zum Wrappen der Buchstaben in <span>
+  const spanizeText = (text: string) =>
+    text
+      .split("")
+      .map((char, index) => (
+        <span
+          key={index}
+          className="inline-block opacity-0 animate-letter-glow"
+          style={{ animationDelay: `${index * 0.05}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ));
+
+  useEffect(() => {
+    // Optional: Initialisierung für weitere Effekte
+  }, []);
+
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Marius_CV.pdf"; // Pfad zur Datei (relativ oder absolut)
-    link.download = "Marius_CV.pdf"; // Name der heruntergeladenen Datei
+    link.href = "/Marius_CV.pdf"; // Pfad zur Datei
+    link.download = "Marius_CV.pdf"; // Name der Datei
     link.click();
   };
 
   const handleCopyEmail = () => {
-    const email = "mariusbungert@gmx.de"; // Ersetze dies durch deine E-Mail-Adresse
+    const email = "mariusbungert@gmx.de"; // Deine E-Mail-Adresse
     navigator.clipboard.writeText(email).then(() => {
-      alert("Email address copied to clipboard!"); // Optional: Hinweis, dass die E-Mail kopiert wurde
+      alert("Email address copied to clipboard!");
     });
   };
+
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-xl text-center">
-        <span className={title()}>Hi, I am&nbsp;</span>
-        <span className={title({ color: "yellow" })}>Marius&nbsp;</span>
-        <br />
-        <span className={subtitle({ class: "mt-2" })}>
-          I am a Media Informatic Student and
-        </span>
-        <div className={subtitle({ class: "mt-1" })}>
-          a Hobby Software Developer from Germany
-        </div>
+    <section className="relative flex flex-col items-center justify-center gap-4 py-8 md:py-10 h-screen bg-black text-white">
+      {/* Hauptinhalt */}
+      <div className="relative z-10 text-center">
+        <h1 className={`${title()} text-4xl font-bold`}>
+          {spanizeText(text)}
+        </h1>
+        <p className={`${subtitle({ class: "mt-2" })} text-lg leading-relaxed`}>
+          {spanizeText(subText)}
+        </p>
       </div>
 
-      <div className="flex gap-3">
+      {/* Buttons */}
+      <div className="flex gap-3 relative z-10">
         {/* Download CV Button */}
         <button
           className={buttonStyles({
@@ -46,8 +67,8 @@ const Hero = () => {
           Download CV
         </button>
 
-         {/* Contact Me Button */}
-         <button
+        {/* Contact Me Button */}
+        <button
           className={buttonStyles({
             color: "primary",
             radius: "full",
