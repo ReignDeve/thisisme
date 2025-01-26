@@ -5,6 +5,7 @@ import Hero from "./hero/page";
 import Experience from "./experience/page";
 import CustomAlert from "@/app/alert/alert";
 import Preloader from "@/app/preload/preload"
+import ContactForm from "./contact/page";
 
 export default function Home() {
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
@@ -52,6 +53,11 @@ export default function Home() {
       {/* Experience Section */}
       <section className="h-screen flex items-center justify-center">
         <Experience />
+      </section>
+
+      {/*Contact form */}
+      <section className="h-screen flex items-center justify-center">
+        <ContactForm />
       </section>
     </div>
   );
