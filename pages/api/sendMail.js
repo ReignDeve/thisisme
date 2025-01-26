@@ -21,17 +21,14 @@ export default async function handler(req, res) {
   });
 
   try {
-    // E-Mail senden
-    const info = await transporter.sendMail({
-      from: `"${name}" <${email}>`, // Absender
-      to: process.env.NEXT_PUBLIC_GMAIL_USER, // Empfänger (deine E-Mail-Adresse)
-      subject: subject, // Betreff
-      text: message, // Nachricht als Text
+    await transporter.sendMail({
+      from: `"${name}" <${process.env.NEXT_PUBLIC_GMAIL_USER}>`,
+      to: process.env.NEXT_PUBLIC_GMAIL_USER,
+      subject,
+      text: message,
+      replyTo: email,
     });
-
-    console.log("Message sent: %s", info.messageId);
-
-    return res.status(200).json({ message: "Email sent successfully" });
+    return res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error("Error sending email:", error);
     return res.status(500).json({ message: "Error sending email", error });
