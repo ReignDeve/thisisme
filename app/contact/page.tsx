@@ -26,7 +26,11 @@ const ContactForm = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/sendMail`, formData);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/sendMail`, formData, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       setResponseMessage(response.data.message);
     } catch (error: any) {
       setResponseMessage(
