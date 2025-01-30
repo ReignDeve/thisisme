@@ -28,9 +28,9 @@ export default async function handler(req, res) {
       text: message,
       replyTo: email,
     });
-    return res.status(200).json({ message: "Email sent successfully!" });
+    return res.status(200).json({ message: "Boom. Message sent. Now go touch grass while you wait." });
   } catch (error) {
     console.error("Error sending email:", error);
-    return res.status(500).json({ message: "Error sending email", error });
+    return res.status(500).json({ message: "Error 404: Message not found....Just kidding, but seriously, try again!", error });
   }
 }

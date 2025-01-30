@@ -3,11 +3,12 @@
 import { useEffect } from "react";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { title, subtitle } from "@/components/primitives";
+import { Link } from "@nextui-org/link";
 
 const Hero = () => {
   const text = "Hi, I am Marius";
   const subText =
-    "I am a Media Informatic Student and a Hobby Software Developer from Germany";
+    "I am a Media Informatic Student and Software Developer from Germany";
 
   // Funktion zum Wrappen der Buchstaben in <span>
   const spanizeText = (text: string) =>
@@ -34,12 +35,6 @@ const Hero = () => {
     link.click();
   };
 
-  const handleCopyEmail = () => {
-    const email = "mariusbungert@gmx.de"; // Deine E-Mail-Adresse
-    navigator.clipboard.writeText(email).then(() => {
-      alert("Email address copied to clipboard!");
-    });
-  };
 
   return (
     <section className="relative flex flex-col items-center justify-center gap-4 py-8 md:py-10 h-screen bg-black text-white">
@@ -68,16 +63,17 @@ const Hero = () => {
         </button>
 
         {/* Contact Me Button */}
+        <Link href="/contact">
         <button
           className={buttonStyles({
             color: "primary",
             radius: "full",
             variant: "shadow",
           })}
-          onClick={handleCopyEmail}
         >
           Contact Me
         </button>
+        </Link>
       </div>
     </section>
   );

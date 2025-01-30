@@ -33,8 +33,8 @@ export default function Home() {
       {showAlert && (
         <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50">
           <CustomAlert
-            title="Hey There!"
-            description="This site is still under construction"
+            title="I'm still working on this."
+            description="But hey, at least i admit it, unlike you with your issues."
             color="warning"
           />
         </div>

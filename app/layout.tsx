@@ -56,7 +56,7 @@ export default function RootLayout({
             <footer className="w-full flex items-center justify-center py-3 mt-0 md:mt-5">
               <section className="flex gap-5">
                 <NextLink color="foreground" href="/impressum">
-                  Impressum
+                  Imprint
                 </NextLink>
                 <NextLink color="foreground" href="/privacypolicy">
                   Private Policy
