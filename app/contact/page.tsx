@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { title } from "@/components/primitives";
 
@@ -13,13 +13,24 @@ const ContactForm = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [responseMessage, setResponseMessage] = useState("");
+  const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+
+  useEffect(() => {
+    if (responseMessage) {
+      const timer = setTimeout(() => {
+        setResponseMessage(null);
+      }, 10000); // 10 Sekunden
+
+      return () => clearTimeout(timer); // Cleanup, falls die Komponente vorher unmounted wird
+    }
+  }, [responseMessage]);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -108,7 +119,7 @@ const ContactForm = () => {
         </div>
 
         {responseMessage && (
-          <p className="mt-4 text-center text-sm text-gray-600">
+          <p className="mt-4 text-center text-lg text-gray-300">
             {responseMessage}
           </p>
         )}
